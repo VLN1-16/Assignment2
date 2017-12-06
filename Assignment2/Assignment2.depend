@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1512582460 source:c:\users\iriso\desktop\skóli\1.2_onn\verklegt námskeið 1\weekassignment2\assignment2\main.cpp
+	"UI.h"
+
+1512595931 source:c:\users\iriso\desktop\skóli\1.2_onn\verklegt námskeið 1\weekassignment2\assignment2\src\models\model.cpp
+	"Model.h"
+
+1512602066 c:\users\iriso\desktop\skóli\1.2_onn\verklegt námskeið 1\weekassignment2\assignment2\include\models\model.h
+	<string>
+	<iostream>
+
+1512594238 c:\users\iriso\desktop\skóli\1.2_onn\verklegt námskeið 1\weekassignment2\assignment2\include\ui\ui.h
+	"Model.h"
+	"Services.h"
+
+1512595931 source:c:\users\iriso\desktop\skóli\1.2_onn\verklegt námskeið 1\weekassignment2\assignment2\src\ui\ui.cpp
+	"UI.h"
+
+1512602066 c:\users\iriso\desktop\skóli\1.2_onn\verklegt námskeið 1\weekassignment2\assignment2\include\services\services.h
+	"Model.h"
+	"Repositories.h"
+
+1512594291 source:c:\users\iriso\desktop\skóli\1.2_onn\verklegt námskeið 1\weekassignment2\assignment2\src\services\services.cpp
+	"Services.h"
+
+1512602066 c:\users\iriso\desktop\skóli\1.2_onn\verklegt námskeið 1\weekassignment2\assignment2\include\repositories\repositories.h
+	"Model.h"
+	<fstream>
+
+1512593950 source:c:\users\iriso\desktop\skóli\1.2_onn\verklegt námskeið 1\weekassignment2\assignment2\src\repositories\repositories.cpp
+	"Repositories.h"
+
