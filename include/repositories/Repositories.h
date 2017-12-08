@@ -3,13 +3,15 @@
 
 #include "Model.h"
 #include <fstream>
+#include <vector>
+using namespace std;
 
 class Repositories
 {
     public:
         Repositories();
         void addSalaryRecord(const Model& model);
-        void searchSalaryRecord(); // get data from file via input
+        vector<Model> searchSalaryRecord(char SSN[11]); // get data from file via input
 
     private:
 };

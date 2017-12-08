@@ -27,7 +27,11 @@ void UI::validateUserInput(char input){
         modelService.addSalaryRecord(createNewRecord());
     }
     else if(input == '2'){
-        cout << "viewing salary records..." << endl;
+        // cout << "viewing salary records..." << endl;
+        cout << "Please enter SSN to look for: ";
+        char ssn[11];
+        cin >> ssn;
+        modelService.searchSalaryRecords(ssn, cout);
     }
     else{
         cout << "Not a valid input! Please try again." << endl;
@@ -36,7 +40,8 @@ void UI::validateUserInput(char input){
 // Get input from user
 // Input gets sent to repository through Services
 Model UI::createNewRecord(){
-    string employeeName, SSN;
+    char SSN[10];
+    char employeeName[150];
     int employeeSalary, month, year;
 
     cout << "Name of Employee: ";
@@ -51,6 +56,7 @@ Model UI::createNewRecord(){
     cin >> employeeSalary;
 
     Model model(employeeName, SSN, year, month, employeeSalary);
+    model.print(cout);
     return model;
 }
 

@@ -1,7 +1,6 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include <string>
 #include <iostream>
 
 using namespace std;
@@ -9,18 +8,20 @@ using namespace std;
 class Model
 {
     public:
-        Model(string employeeName, string SSN, int employeeSalary, int month, int year);
+        Model();
+        Model(char employeeName[150], char SSN[11], int employeeSalary, int month, int year);
         string getEmployeeName();
         string getSSN();
         int getYear();
         int getMonth();
         int getEmployeeSalary();
-
+        bool compareSSN(char SSN[10]);
+        void print(ostream& out);
         friend ostream& operator <<(ostream& out, const Model& model);
-
+        friend istream& operator >>(istream& is, Model& model);
     private:
-        string employeeName;
-        string SSN;
+        char employeeName[150];
+        char SSN[11]; 
         int year;
         int month;
         int employeeSalary;
