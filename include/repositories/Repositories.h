@@ -4,6 +4,7 @@
 #include "Model.h"
 #include <fstream>
 #include <vector>
+#include "genericError.h"
 using namespace std;
 
 class Repositories

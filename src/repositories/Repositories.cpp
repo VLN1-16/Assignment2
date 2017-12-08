@@ -14,7 +14,7 @@ void Repositories::addSalaryRecord(const Model& model){
         fout.close();
     }
     else{
-        ///throw
+        throw genericError("Unable to open data file for writing");
     }
 }
 

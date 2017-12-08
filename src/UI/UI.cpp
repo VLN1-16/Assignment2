@@ -20,18 +20,27 @@ void UI::mainMenu(){
         cin >> input;
 
         validateUserInput(input);
-
-        /*
-        Get​ ​ a ​ ​ total​ ​ Salary​ ​ for​ ​ a ​ ​ given​ ​ year​ ​ and​ ​ a ​ ​ given​ ​ SSN
-        Get​ ​ the​ ​ name​ ​ of​ ​ the​ ​ employee​ ​ with​ ​ the​ ​ highest​ ​ total​ ​ salary​ ​ for​ ​ a ​ ​ given​ ​ year
-        */
     }
 }
 
 void UI::validateUserInput(char input){
     // make a switch statment instead??
     if(input == '1'){
-        modelService.addSalaryRecord(createNewRecord());
+        try{
+            modelService.addSalaryRecord(createNewRecord());
+        }
+        catch(InvalidName e){
+            cout << "Exception was thrown with error :" << e.GetMessage()  << endl;
+        }
+        catch(InvalidSSN e){
+            cout << "Exception was thrown with error : " << e.GetMessage() << endl;
+        }
+        catch(InvalidSalery e){
+            cout << "Exception was thrown with error : " << e.GetMessage() << endl;
+        }    
+        catch(genericError e){
+            cout << "An internal error occured : " << e.GetMessage() << endl;
+        }
     }
     else if(input == '2'){
         // cout << "viewing salary records..." << endl;

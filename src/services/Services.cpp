@@ -5,8 +5,12 @@ Services::Services()
     //ctor
 }
 
-void Services::addSalaryRecord(const Model& model){
-    std::cout << "service" << std::endl;
+void Services::addSalaryRecord(Model model){
+    // here most of the tests occur
+    // test name of employee
+    namecheck(model.getEmployeeName());
+    SSNcheck(model.getSSN());
+    Salerycheck(model.getEmployeeSalary());
     employeeRepo.addSalaryRecord(model);
     // model.print(cout);
 }
@@ -38,4 +42,35 @@ void Services::getNameWithHighestSalary(int year,ostream& out){
         }
     }
     out << tmp.getEmployeeName();
+}
+void Services::namecheck(char name[150]){
+    // can't be empty
+    if(name[0] == '\0') return throw InvalidName("Name is empty");
+    // name cannot start with a space
+    if(name[0] == ' ') return throw InvalidName("Name cannot start with a space");
+    // every element must be a space or a letter, nor have two spaces in a row
+    bool lastwass = false;
+    for(int i = 0; i < 150; i++){
+        if(name[i] == '\0'){
+            if(name[i - 1] == ' ') throw InvalidName("Name cannot end with a space"); // ends with a space
+            break;
+        }
+
+        if( name[i] != ' ' && !isalpha(name[i]) ){ // If the user enters numbers or some shit
+            throw InvalidName("Name can only include letters and spaces");
+        }
+        else{
+            if(name[i] == ' ' && lastwass) throw InvalidName("Name can not include two spaces in a row"); // Lastwas space and now is space, two in a row
+            else if(name[i] == ' ' && !lastwass) lastwass = true;
+            else lastwass = false;
+        }
+    }
+}
+void Services::SSNcheck(char SSN[11]){
+    for(int i = 0; i < 10; i++){
+        if(!isdigit(SSN[i])) throw InvalidSSN("SSN should only include numbers");
+    }
+}
+void Services::Salerycheck(int salery){
+    if(salery < 0) throw InvalidSalery("sallery cannot be below 0");
 }

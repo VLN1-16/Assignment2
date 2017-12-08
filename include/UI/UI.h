@@ -3,7 +3,10 @@
 
 #include "Model.h"
 #include "Services.h"
-
+#include "InvalidName.h"
+#include "InvalidSSN.h"
+#include "InvalidSalery.h"
+#include "genericError.h"
 class UI
 {
     public:
