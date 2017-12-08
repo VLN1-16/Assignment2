@@ -32,7 +32,7 @@ void Services::getNameWithHighestSalary(int year,ostream& out){
     Model tmp;
     vector<Model> ssns = employeeRepo.getSalaryRecords();
     for(int i = 0; i < ssns.size(); i++){
-        if(getTotalSalary(ssns[i].getSSN(),year) >= highest){
+        if(getTotalSalary(ssns[i].getSSN(),year) >= highest && getTotalSalary(ssns[i].getSSN(),year) != 0){
             tmp = ssns[i];
             highest = getTotalSalary(ssns[i].getSSN(),year);
         }
