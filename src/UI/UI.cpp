@@ -68,11 +68,18 @@ void UI::validateUserInput(char input){
 // Input gets sent to repository through Services
 Model UI::createNewRecord(){
     char SSN[11];
+    string name;
     char employeeName[150];
     int employeeSalary, month, year;
 
     cout << "Name of Employee: ";
-    cin >> employeeName;
+    // cin >> employeeName;
+    getline(cin, name);
+    getline(cin, name);
+    for(int i = 0; i < 150; i++){
+        employeeName[i] = name[i];
+        if(name[i] == '\0') break;
+    }
     cout << "SSN (Social security number): ";
     cin >> SSN;
     cout << "Enter a year to add/edit a salary record: ";
