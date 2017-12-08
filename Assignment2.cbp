@@ -41,11 +41,13 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/UI/UI.h" />
+		<Unit filename="include/exceptions/Exceptions.h" />
 		<Unit filename="include/models/Model.h" />
 		<Unit filename="include/repositories/Repositories.h" />
 		<Unit filename="include/services/Services.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/UI/UI.cpp" />
+		<Unit filename="src/exceptions/Exceptions.cpp" />
 		<Unit filename="src/models/Model.cpp" />
 		<Unit filename="src/repositories/Repositories.cpp" />
 		<Unit filename="src/services/Services.cpp" />
