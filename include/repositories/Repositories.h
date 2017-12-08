@@ -12,6 +12,7 @@ class Repositories
         Repositories();
         void addSalaryRecord(const Model& model);
         vector<Model> searchSalaryRecord(char SSN[11]); // get data from file via input
+        vector<Model> getSalaryRecords();
 
     private:
 };

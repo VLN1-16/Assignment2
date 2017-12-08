@@ -12,12 +12,19 @@ void UI::mainMenu(){
         cout << "*******" << endl;
         cout << "Press 1 to add a new salary record" << endl;
         cout << "Press 2 to view salary records" << endl;
+        cout << "Press 3 to get total salary for a given year and SSN" << endl;
+        cout << "Press 4 to get the name of the employee with the highest total salary for a given year" << endl;
         cout << endl;
 
         char input;
         cin >> input;
 
         validateUserInput(input);
+
+        /*
+        Get​ ​ a ​ ​ total​ ​ Salary​ ​ for​ ​ a ​ ​ given​ ​ year​ ​ and​ ​ a ​ ​ given​ ​ SSN
+        Get​ ​ the​ ​ name​ ​ of​ ​ the​ ​ employee​ ​ with​ ​ the​ ​ highest​ ​ total​ ​ salary​ ​ for​ ​ a ​ ​ given​ ​ year
+        */
     }
 }
 
@@ -33,6 +40,26 @@ void UI::validateUserInput(char input){
         cin >> ssn;
         modelService.searchSalaryRecords(ssn, cout);
     }
+    else if(input == '3'){
+        // cout << "viewing salary records..." << endl;
+        cout << "Please enter SSN to look for: ";
+        char ssn[11];
+        cin >> ssn;
+        cout << "Please enter year to look for: ";
+        int year;
+        cin >> year;
+        cout << "The Employee with SSN: " << ssn << " has salary for the year " << year << " ";
+        cout << modelService.getTotalSalary(ssn, year) << endl;
+    }
+    else if(input == '4'){
+        int year;
+         cout << "Please enter the year you want to search for: " << endl;
+         cin >> year;
+        cout << "The Employee with the highest salary for the year " << year << "is ";
+        modelService.getNameWithHighestSalary(year,cout);
+        cout << endl;
+
+    }
     else{
         cout << "Not a valid input! Please try again." << endl;
     }
@@ -40,7 +67,7 @@ void UI::validateUserInput(char input){
 // Get input from user
 // Input gets sent to repository through Services
 Model UI::createNewRecord(){
-    char SSN[10];
+    char SSN[11];
     char employeeName[150];
     int employeeSalary, month, year;
 
@@ -59,4 +86,3 @@ Model UI::createNewRecord(){
     model.print(cout);
     return model;
 }
-
