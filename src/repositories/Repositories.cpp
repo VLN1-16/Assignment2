@@ -6,10 +6,8 @@ Repositories::Repositories()
 }
 
 void Repositories::addSalaryRecord(const Model& model){
-    std::cout << "repo1" << std::endl;
     ofstream fout("records.dat", ios::app | ios::binary);
     if(fout.is_open()){
-        std::cout << "repo2" << std::endl;
         fout << model;
         fout.close();
     }

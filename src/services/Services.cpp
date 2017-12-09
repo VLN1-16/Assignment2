@@ -11,6 +11,8 @@ void Services::addSalaryRecord(Model model){
     namecheck(model.getEmployeeName());
     SSNcheck(model.getSSN());
     Salerycheck(model.getEmployeeSalary());
+    if(model.getYear() != 2017) throw genericError("Cannot take year other then 2017");
+    if(model.getMonth() > 12 || model.getMonth() < 1) throw genericError("Invalid month");
     employeeRepo.addSalaryRecord(model);
     // model.print(cout);
 }
@@ -69,7 +71,9 @@ void Services::namecheck(char name[150]){
 void Services::SSNcheck(char SSN[11]){
     for(int i = 0; i < 10; i++){
         if(!isdigit(SSN[i])) throw InvalidSSN("SSN should only include numbers");
+        if(SSN[i] == '\0') throw InvalidSSN("SSN is less then 10 digits!");
     }
+    if(SSN[10] != '\0') throw InvalidSSN("SSN is longer then 10 digits!");
 }
 void Services::Salerycheck(int salery){
     if(salery < 0) throw InvalidSalery("sallery cannot be below 0");

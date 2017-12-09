@@ -8,6 +8,7 @@
 #include "InvalidName.h"
 #include "InvalidSSN.h"
 #include "InvalidSalery.h"
+#include "genericError.h"
 
 class Services
 {
