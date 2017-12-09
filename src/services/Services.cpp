@@ -17,22 +17,6 @@ void Services::addSalaryRecord(Model model){
     }
     if(model.getMonth() > 12 || model.getMonth() < 1) throw genericError("Invalid month");
 
-    // Here the model has passed all tests, let's check if there is another 
-    // with the same SSN and month, ( let's also compare years )
-    vector<Model> SaleryRecords = employeeRepo.getSalaryRecords();
-    for(int i = 0; i < SaleryRecords.size(); i++){
-        // the SSN is the same, the month and the year then have to match
-        if(model.getMonth() != SaleryRecords[i].getMonth()) continue;
-        if(model.getYear() != SaleryRecords[i].getYear()) continue;
-        if(!model.compareSSN(SaleryRecords[i].getSSN())) continue;
-        
-        // This model has the same SSN year and month
-        // override and rewrite it all into file
-        SaleryRecords[i] = model;
-        employeeRepo.writeAll(SaleryRecords); // overwrite the index
-        return;
-    }
-    employeeRepo.addSalaryRecord(model);
 
     // Here the model has passed all tests, let's check if there is another
     // with the same SSN and month, ( let's also compare years )
