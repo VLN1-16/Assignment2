@@ -37,7 +37,7 @@ void UI::validateUserInput(char input){
         }
         catch(InvalidSalery e){
             cout << "Exception was thrown with error : " << e.GetMessage() << endl;
-        }    
+        }
         catch(genericError e){
             cout << "An internal error occured : " << e.GetMessage() << endl;
         }
@@ -48,6 +48,7 @@ void UI::validateUserInput(char input){
         char ssn[11];
         cin >> ssn;
         modelService.searchSalaryRecords(ssn, cout);
+        cout << endl;
     }
     else if(input == '3'){
         // cout << "viewing salary records..." << endl;
@@ -57,20 +58,20 @@ void UI::validateUserInput(char input){
         cout << "Please enter year to look for: ";
         int year;
         cin >> year;
-        cout << "The Employee with SSN: " << ssn << " has salary for the year " << year << " ";
-        cout << modelService.getTotalSalary(ssn, year) << endl;
+        cout << "The Employee with SSN " << ssn << " has salary for the year " << year << ": ";
+        cout << modelService.getTotalSalary(ssn, year) << endl << endl;
     }
     else if(input == '4'){
         int year;
-         cout << "Please enter the year you want to search for: " << endl;
+         cout << "Please enter the year you want to search for: ";
          cin >> year;
-        cout << "The Employee with the highest salary for the year " << year << "is ";
+        cout << "The Employee with the highest salary for the year " << year << " is ";
         modelService.getNameWithHighestSalary(year,cout);
-        cout << endl;
+        cout << endl << endl;
 
     }
     else{
-        cout << "Not a valid input! Please try again." << endl;
+        cout << "Not a valid input! Please try again." << endl << endl;
     }
 }
 // Get input from user

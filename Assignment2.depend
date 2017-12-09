@@ -30,3 +30,58 @@
 1512593950 source:c:\users\iriso\desktop\skóli\1.2_onn\verklegt námskeið 1\weekassignment2\assignment2\src\repositories\repositories.cpp
 	"Repositories.h"
 
+1512779815 source:c:\users\iriso\documents\github\assignment2\main.cpp
+	"UI.h"
+
+1512780141 c:\users\iriso\documents\github\assignment2\include\ui\ui.h
+	"Model.h"
+	"Services.h"
+	"InvalidName.h"
+	"InvalidSSN.h"
+	"InvalidSalery.h"
+	"genericError.h"
+
+1512779815 c:\users\iriso\documents\github\assignment2\include\models\model.h
+	<iostream>
+
+1512786097 c:\users\iriso\documents\github\assignment2\include\services\services.h
+	"Model.h"
+	"Repositories.h"
+	<vector>
+	<cstring>
+	"InvalidName.h"
+	"InvalidSSN.h"
+	"InvalidSalery.h"
+	"genericError.h"
+	<time.h>
+
+1512786653 c:\users\iriso\documents\github\assignment2\include\repositories\repositories.h
+	"Model.h"
+	<fstream>
+	<vector>
+	"genericError.h"
+
+1512779815 source:c:\users\iriso\documents\github\assignment2\src\models\model.cpp
+	"Model.h"
+
+1512779815 source:c:\users\iriso\documents\github\assignment2\src\exceptions\genericerror.cpp
+	"genericError.h"
+
+1512779815 source:c:\users\iriso\documents\github\assignment2\src\exceptions\invalidname.cpp
+	"InvalidName.h"
+
+1512779815 source:c:\users\iriso\documents\github\assignment2\src\exceptions\invalidsalery.cpp
+	"InvalidSalery.h"
+
+1512779815 source:c:\users\iriso\documents\github\assignment2\src\exceptions\invalidssn.cpp
+	"InvalidSSN.h"
+
+1512779815 source:c:\users\iriso\documents\github\assignment2\src\repositories\repositories.cpp
+	"Repositories.h"
+
+1512785941 source:c:\users\iriso\documents\github\assignment2\src\services\services.cpp
+	"Services.h"
+
+1512783129 source:c:\users\iriso\documents\github\assignment2\src\ui\ui.cpp
+	"UI.h"
+

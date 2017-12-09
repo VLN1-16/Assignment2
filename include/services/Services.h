@@ -9,6 +9,7 @@
 #include "InvalidSSN.h"
 #include "InvalidSalery.h"
 #include "genericError.h"
+#include <time.h>
 
 class Services
 {
@@ -23,6 +24,13 @@ class Services
         void Salerycheck(int salery);
     private:
         Repositories employeeRepo;
+
+        time_t theTime = time(NULL);
+        struct tm *aTime = localtime(&theTime);
+
+        int currentMonth = aTime->tm_mon + 1; // Month is 0 - 11, add 1 to get a jan-dec 1-12 concept
+        int currentYear = aTime->tm_year + 1900; // Year is # years since 1900
+
 };
 
 #endif // SERVICES_H
