@@ -22,6 +22,7 @@ class Model
         //Model& operator=(const Model& from);
         friend ostream& operator <<(ostream& out, const Model& model);
         friend istream& operator >>(istream& is, Model& model);
+ 
     private:
         char employeeName[150];
         char SSN[11];

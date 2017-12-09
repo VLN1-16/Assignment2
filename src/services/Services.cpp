@@ -13,6 +13,22 @@ void Services::addSalaryRecord(Model model){
     Salerycheck(model.getEmployeeSalary());
     if(model.getYear() != 2017) throw genericError("Cannot take year other then 2017");
     if(model.getMonth() > 12 || model.getMonth() < 1) throw genericError("Invalid month");
+
+    // Here the model has passed all tests, let's check if there is another 
+    // with the same SSN and month, ( let's also compare years )
+    vector<Model> SaleryRecords = employeeRepo.getSalaryRecords();
+    for(int i = 0; i < SaleryRecords.size(); i++){
+        // the SSN is the same, the month and the year then have to match
+        if(model.getMonth() != SaleryRecords[i].getMonth()) continue;
+        if(model.getYear() != SaleryRecords[i].getYear()) continue;
+        if(!model.compareSSN(SaleryRecords[i].getSSN())) continue;
+        
+        // This model has the same SSN year and month
+        // override and rewrite it all into file
+        SaleryRecords[i] = model;
+        employeeRepo.writeAll(SaleryRecords); // overwrite the index
+        return;
+    }
     employeeRepo.addSalaryRecord(model);
     // model.print(cout);
 }
@@ -70,8 +86,8 @@ void Services::namecheck(char name[150]){
 }
 void Services::SSNcheck(char SSN[11]){
     for(int i = 0; i < 10; i++){
-        if(!isdigit(SSN[i])) throw InvalidSSN("SSN should only include numbers");
         if(SSN[i] == '\0') throw InvalidSSN("SSN is less then 10 digits!");
+        if(!isdigit(SSN[i])) throw InvalidSSN("SSN should only include numbers");
     }
     if(SSN[10] != '\0') throw InvalidSSN("SSN is longer then 10 digits!");
 }

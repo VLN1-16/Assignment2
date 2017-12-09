@@ -33,6 +33,13 @@ vector<Model> Repositories::searchSalaryRecord(char SSN[11]){
     fin.close();
     return ssnmatch;
 }
+void Repositories::writeAll(vector<Model> entries){
+    ofstream fout("records.dat", ios::binary);
+    for(int i = 0; i < entries.size(); i++){
+        fout << entries[i];
+    }
+    fout.close();
+}
 vector<Model> Repositories::getSalaryRecords(){
     Model model;
     vector<Model> ssnmatch;
